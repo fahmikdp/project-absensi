@@ -4,14 +4,19 @@ import { ChevronLeft } from "@mui/icons-material";
 
 export default function Navbar() {
   return (
-    <AppBar elevation="" position="static" sx={{ xs: 12, bgcolor: "#fff" }}>
-      <Box sx={{ flexGrow: 2 }}>
-        <IconButton>
+    <AppBar
+      elevation="none"
+      position="fixed"
+      sx={{ xs: 12, bgcolor: "#249EA0", pt: 1, width: "100%" }}
+    >
+      <Box sx={{ width: "100%" }}>
+        <IconButton sx={{ color: "#fff" }}>
           <ChevronLeft />
-          <Typography>Form Absensi</Typography>
+          <Typography sx={{ fontFamily: "poppins", fontWeight: 700 }}>
+            Form Absensi
+          </Typography>
         </IconButton>
       </Box>
-      <Box sx={{ flexGrow: 10 }}></Box>
     </AppBar>
   );
 }
