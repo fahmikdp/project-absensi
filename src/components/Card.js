@@ -19,11 +19,11 @@ const Data = () => {
             sx={{
               xs: 12,
               border: "#0000008A 1px solid",
-              width: "97%",
+              width: "90%",
               margin: "auto",
-              mb: 1,
+              mb: 2,
               height: 60,
-              boxShadow: "2px 2px #a1a1a1",
+              boxShadow: "1px 1px #a1a1a1",
             }}
           >
             <Grid container spacing={2}>

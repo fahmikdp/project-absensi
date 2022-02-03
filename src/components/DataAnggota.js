@@ -1,37 +1,37 @@
 const lotsOfData = [
   {
     ava: "A",
-    nama: "Angga X Asomething",
+    nama: "Angga Gatau Siapa",
     info: "Sabuk Putih",
   },
   {
     ava: "G",
-    nama: "Gilang Gans Abiez",
+    nama: "Gilang",
     info: "Sabuk Hijau",
   },
   {
     ava: "A",
-    nama: "Aldi X Mberr",
+    nama: "Ariana Grande",
     info: "Sabuk Ungu",
   },
   {
     ava: "A",
-    nama: "Amoy Mnss",
+    nama: "Adele",
     info: "Sabuk Kuning",
   },
   {
     ava: "C",
-    nama: "Cimoy Tapi Boonk",
-    info: "Sabuk SeatBelt",
+    nama: "Chika",
+    info: "Sabuk Putih",
   },
   {
     ava: "S",
-    nama: "Sahrul Katanyaa",
-    info: "Gesper SMP",
+    nama: "Sahrul",
+    info: "Gesper Putih",
   },
   {
     ava: "A",
-    nama: "Ajel Ajhh",
+    nama: "Ajel Aja",
     info: "Sabuk Putih",
   },
 ];
