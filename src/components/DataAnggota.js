@@ -1,7 +1,7 @@
 const lotsOfData = [
   {
     ava: "A",
-    nama: "Angga Gatau Siapa",
+    nama: "Angga",
     info: "Sabuk Putih",
   },
   {
@@ -11,12 +11,12 @@ const lotsOfData = [
   },
   {
     ava: "A",
-    nama: "Ariana Grande",
+    nama: "Aldi",
     info: "Sabuk Ungu",
   },
   {
     ava: "A",
-    nama: "Adele",
+    nama: "Adel",
     info: "Sabuk Kuning",
   },
   {
@@ -27,11 +27,16 @@ const lotsOfData = [
   {
     ava: "S",
     nama: "Sahrul",
-    info: "Gesper Putih",
+    info: "Sabuk Putih",
   },
   {
-    ava: "A",
-    nama: "Ajel Aja",
+    ava: "P",
+    nama: "Putri",
+    info: "Sabuk Putih",
+  },
+  {
+    ava: "N",
+    nama: "Nayya",
     info: "Sabuk Putih",
   },
 ];

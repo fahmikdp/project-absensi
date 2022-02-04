@@ -18,7 +18,7 @@ const Data = () => {
           <Card
             sx={{
               xs: 12,
-              border: "#0000008A 1px solid",
+              //   border: "#0000008A 1px solid",
               width: "90%",
               margin: "auto",
               mb: 2,
@@ -33,7 +33,7 @@ const Data = () => {
                 </Avatar>
               </Grid>
               <Grid item xs={8.5} md={9} lg={10}>
-                <CardContent sx={{ mt: -0 }}>
+                <CardContent>
                   <Typography
                     variant="h6"
                     component="div"
