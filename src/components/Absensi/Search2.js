@@ -1,10 +1,8 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import Container from "@mui/material/Container";
-import Card from "./Card";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -43,27 +41,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(2.5)})`,
     width: "100%",
     [theme.breakpoints.up("md")]: {
-      width: "20ch",
+      width: "80ch",
     },
   },
 }));
 
 export default function PrimarySearchAppBar() {
   return (
-    <Container>
-      <Box sx={{ flexGrow: 1, mt: 7 }}>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
-          />
-        </Search>
-        <br />
-        <Card />
-      </Box>
-    </Container>
+    <Box sx={{ flexGrow: 1, mt: -1 }}>
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Search…"
+          inputProps={{ "aria-label": "search" }}
+        />
+      </Search>
+    </Box>
   );
 }

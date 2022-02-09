@@ -1,7 +1,8 @@
 import React from "react";
 import { AppBar, IconButton, Typography, Box } from "@mui/material";
 import { ChevronLeft } from "@mui/icons-material";
-import Search from "./Search";
+import Tabs from "./Tabs";
+import Buttons from "./ButtonFilter";
 
 export default function Navbar() {
   return (
@@ -15,12 +16,12 @@ export default function Navbar() {
           <IconButton sx={{ color: "#fff" }}>
             <ChevronLeft />
             <Typography sx={{ fontFamily: "Roboto", fontWeight: 700 }}>
-              Form Absensi
+              Absensi
             </Typography>
           </IconButton>
         </Box>
       </AppBar>
-      <Search />
+      <Tabs />
     </>
   );
 }
