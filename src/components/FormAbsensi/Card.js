@@ -8,7 +8,7 @@ import {
   Grid,
 } from "@mui/material";
 import Checkbox from "./Checkbox";
-import lotsOfData from "./DataAnggota";
+import lotsOfData from "../DataAnggota/DataAnggota";
 
 const Data = () => {
   return (

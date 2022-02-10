@@ -15,7 +15,7 @@ export default function SearchPunyaAdel() {
               <IconButton>
                 <SearchIcon
                   sx={{
-                    fontSize: 25,
+                    fontSize: 22,
                     color: "grey",
                     "&:hover": { color: "#249EA0" },
                   }}
@@ -24,8 +24,8 @@ export default function SearchPunyaAdel() {
             </InputAdornment>
           ),
           style: {
-            fontSize: 16,
-            height: 42,
+            fontSize: 15,
+            height: 40,
           },
         }}
         sx={{

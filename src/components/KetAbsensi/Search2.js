@@ -6,7 +6,6 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
   border: "#0000008A 1px solid",
   marginRight: theme.spacing(2),
   justifyContent: "center",

@@ -9,7 +9,7 @@ import {
   Button,
   ButtonGroup,
 } from "@mui/material";
-import lotsOfData from "../FormAbsensi/DataAnggota";
+import lotsOfData from "../DataAnggota/DataAnggota";
 
 const Data = () => {
   return (
@@ -72,25 +72,22 @@ const Data = () => {
                 variant="outlined"
                 aria-label="outlined button group"
                 color="inherit"
-                sx={{
-                  color: "grey",
-                }}
               >
-                <Button sx={{ display: "block" }}>
+                <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
                   <Typography sx={{ fontSize: 10 }}>Tidak Hadir</Typography>
-                  <Typography sx={{ fontSize: 25 }}>5</Typography>
+                  <Typography sx={{ fontSize: 25 }}>{data.alpa}</Typography>
                 </Button>
-                <Button sx={{ display: "block" }}>
+                <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
                   <Typography sx={{ fontSize: 10 }}>Sakit</Typography>
-                  <Typography sx={{ fontSize: 25 }}>2</Typography>
+                  <Typography sx={{ fontSize: 25 }}>{data.sakit}</Typography>
                 </Button>
-                <Button sx={{ display: "block" }}>
+                <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
                   <Typography sx={{ fontSize: 10 }}>Izin</Typography>
-                  <Typography sx={{ fontSize: 25 }}>2</Typography>
+                  <Typography sx={{ fontSize: 25 }}>{data.izin}</Typography>
                 </Button>
-                <Button sx={{ display: "block" }}>
+                <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
                   <Typography sx={{ fontSize: 10 }}>Presentase</Typography>
-                  <Typography sx={{ fontSize: 25 }}>92%</Typography>
+                  <Typography sx={{ fontSize: 25 }}>{data.present}</Typography>
                 </Button>
               </ButtonGroup>
             </Box>
