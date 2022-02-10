@@ -5,8 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Buttons from "./ButtonFilter";
-import Search from "./Search2";
-import Card from "./Card2";
+import Card from "./CardKetAbsen";
+import Search from "./Search";
+import Navbar from "../Navbar";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,27 +50,35 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%", mt: 6 }}>
-      <Box sx={{ color: "grey" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          textColor="inherit"
-          aria-label="basic tabs example"
-          variant="fullWidth"
-        >
-          <Tab label="Karateka" {...a11yProps(0)} />
-          <Tab label="Pelatih" {...a11yProps(1)} />
-        </Tabs>
+    <>
+      <Navbar>Absensi</Navbar>
+      <Box sx={{ width: "100%", mt: 6 }}>
+        <Box sx={{ color: "grey" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            textColor="inherit"
+            aria-label="basic tabs example"
+            variant="fullWidth"
+          >
+            <Tab label="Karateka" {...a11yProps(0)} />
+            <Tab label="Pelatih" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        {/* Tab Karateka */}
+        <TabPanel value={value} index={0} sx={{ width: "100%" }}>
+          {/* Search */}
+          <Search />
+          {/* Button Filter */}
+          <Buttons />
+          {/* Card Ket. Absen */}
+          <Card />
+        </TabPanel>
+        {/* Tab Pelatih */}
+        <TabPanel value={value} index={1}>
+          Belum ada
+        </TabPanel>
       </Box>
-      <TabPanel value={value} index={0} sx={{ width: "100%" }}>
-        <Search />
-        <Buttons />
-        <Card />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Belum ada tsay
-      </TabPanel>
-    </Box>
+    </>
   );
 }

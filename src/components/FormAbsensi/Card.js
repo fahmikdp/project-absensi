@@ -6,10 +6,9 @@ import {
   Avatar,
   Typography,
   Grid,
-  Button,
-  ButtonGroup,
 } from "@mui/material";
-import lotsOfData from "../DataAnggota";
+import Checkbox from "./Checkbox";
+import lotsOfData from "./DataAnggota";
 
 const Data = () => {
   return (
@@ -20,13 +19,15 @@ const Data = () => {
             sx={{
               maxWidth: 520,
               xs: 12,
+              width: "100%",
               margin: "auto",
               mb: 1,
-              height: 150,
+              height: 60,
               boxShadow: "0px 0px 6px #a1a1a1",
             }}
           >
             <Grid container spacing={2}>
+              {/* Avatar */}
               <Grid item xs={1.5} md={1} lg={0.5}>
                 <Avatar
                   sx={{ bgcolor: "#F78104", ml: 1, mt: 1 }}
@@ -37,6 +38,7 @@ const Data = () => {
               </Grid>
               <Grid item xs={8.5} md={9} lg={10}>
                 <CardContent>
+                  {/* Nama Peserta */}
                   <Typography
                     variant="h6"
                     component="div"
@@ -50,6 +52,7 @@ const Data = () => {
                   >
                     {data.nama}
                   </Typography>
+                  {/* Jenis Sabuk */}
                   <Typography
                     variant="body2"
                     color="text.secondary"
@@ -59,41 +62,11 @@ const Data = () => {
                   </Typography>
                 </CardContent>
               </Grid>
+              {/* Checkbox */}
+              <Grid item xs={2} md={2} lg={1}>
+                <Checkbox />
+              </Grid>
             </Grid>
-            <Box
-              sx={{
-                mt: -1,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <ButtonGroup
-                variant="outlined"
-                aria-label="outlined button group"
-                color="inherit"
-                sx={{
-                  color: "grey",
-                }}
-              >
-                <Button sx={{ display: "block" }}>
-                  <Typography sx={{ fontSize: 10 }}>Tidak Hadir</Typography>
-                  <Typography sx={{ fontSize: 25 }}>5</Typography>
-                </Button>
-                <Button sx={{ display: "block" }}>
-                  <Typography sx={{ fontSize: 10 }}>Sakit</Typography>
-                  <Typography sx={{ fontSize: 25 }}>2</Typography>
-                </Button>
-                <Button sx={{ display: "block" }}>
-                  <Typography sx={{ fontSize: 10 }}>Izin</Typography>
-                  <Typography sx={{ fontSize: 25 }}>2</Typography>
-                </Button>
-                <Button sx={{ display: "block" }}>
-                  <Typography sx={{ fontSize: 10 }}>Presentase</Typography>
-                  <Typography sx={{ fontSize: 25 }}>92%</Typography>
-                </Button>
-              </ButtonGroup>
-            </Box>
           </Card>
         </Box>
       ))}

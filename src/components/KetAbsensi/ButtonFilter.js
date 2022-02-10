@@ -19,8 +19,8 @@ const ButtonFilters = styled(Button)({
   lineHeight: 1.5,
   backgroundColor: "#25B8BB",
   fontFamily: [
-    "poppins",
     "Roboto",
+    "poppins",
     '"Helvetica Neue"',
     "Arial",
     "sans-serif",

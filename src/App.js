@@ -1,6 +1,6 @@
 import React from "react";
-import FormAbsensi from "./components/Navbar";
-import Absensi from "./components/Absensi/Navbar2";
+import FormAbsensi from "./components/FormAbsensi/FormAbsensi";
+import Absensi from "./components/KetAbsensi/Absensi";
 
 function App() {
   return (

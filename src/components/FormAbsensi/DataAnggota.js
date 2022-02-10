@@ -1,8 +1,8 @@
-import Keanu from "../img/keanu.jpeg";
-import Tanjiro from "../img/tanjiro.jpg";
-import Hitomi from "../img/hitomi.jpg";
-import Adele from "../img/adele.jpg";
-import Nayya from "../img/nayya.png";
+import Keanu from "../../img/keanu.jpeg";
+import Tanjiro from "../../img/tanjiro.jpg";
+import Hitomi from "../../img/hitomi.jpg";
+import Adele from "../../img/adele.jpg";
+import Nayya from "../../img/nayya.png";
 
 const lotsOfData = [
   {
