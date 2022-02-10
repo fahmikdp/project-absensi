@@ -8,6 +8,7 @@ import Buttons from "./ButtonFilter";
 import Card from "./CardKetAbsen";
 import Search from "./Search";
 import Navbar from "../Navbar";
+import { Link } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,7 +52,9 @@ export default function BasicTabs() {
 
   return (
     <>
-      <Navbar>Absensi</Navbar>
+      <Link to="/">
+        <Navbar>Absensi</Navbar>
+      </Link>
       <Box sx={{ width: "100%", mt: 6 }}>
         <Box sx={{ color: "grey" }}>
           <Tabs

@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import Card from "./Card";
 import Btn from "./Buttonfloating";
 import Navbar from "../Navbar";
+import { Link } from "react-router-dom";
 
 export default function PrimarySearchAppBar() {
   return (
@@ -57,7 +58,9 @@ export default function PrimarySearchAppBar() {
           {/* Component Card */}
           <Card />
           {/* Button Floating */}
-          <Btn />
+          <Link to="/absensi">
+            <Btn />
+          </Link>
         </Box>
       </Container>
     </>
