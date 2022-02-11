@@ -8,7 +8,7 @@ const ButtonFilters = styled(Button)({
   transition: " 1ms smooth",
   marginTop: 10,
   marginBottom: 10,
-  marginLeft: 2,
+  marginRight: 5,
   width: "25%",
   boxShadow: "none",
   textTransform: "none",
@@ -17,7 +17,13 @@ const ButtonFilters = styled(Button)({
   border: "1px solid",
   borderRadius: "20px",
   lineHeight: 1.5,
-  backgroundColor: "#25B8BB",
+  backgroundColor: "#fff",
+  color: "#25B8BB",
+  borderColor: "#25B8BB",
+  "&.clicked": {
+    backgroundColor: "#25B8BB",
+    color: "#fff",
+  },
   fontFamily: [
     "Roboto",
     "poppins",
@@ -26,15 +32,19 @@ const ButtonFilters = styled(Button)({
     "sans-serif",
   ].join(","),
   "&:hover": {
-    backgroundColor: "#25B8BB",
+    color: "#fff",
     padding: "5px 26px",
     boxShadow: "none",
-  },
-  "&:active": {
-    boxShadow: "none",
     backgroundColor: "#25B8BB",
   },
-  "&:focus": {},
+  "&:active": {
+    color: "#fff",
+    backgroundColor: "#25B8BB",
+  },
+  "&:focus": {
+    color: "#fff",
+    backgroundColor: "#25B8BB",
+  },
 });
 
 export default function ButtonFilter() {

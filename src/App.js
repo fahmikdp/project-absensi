@@ -1,5 +1,5 @@
 import React from "react";
-import FormAbsensi from "./components/FormAbsensi/FormAbsensi";
+import FormAbsensi from "./components/FormAbsensi/Card";
 import Absensi from "./components/KetAbsensi/Absensi";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
