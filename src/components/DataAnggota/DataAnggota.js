@@ -28,7 +28,7 @@ const lotsOfData = [
   {
     ava: "A",
     nama: "Aldi",
-    sabuk: "Sabuk Ungu",
+    sabuk: "Sabuk Kuning",
     alpa: 0,
     sakit: 0,
     izin: 1,
@@ -76,7 +76,7 @@ const lotsOfData = [
     ava: "N",
     img: Nayya,
     nama: "Nayya",
-    sabuk: "Sabuk Putih",
+    sabuk: "Sabuk Biru",
     alpa: 0,
     sakit: 3,
     izin: 1,

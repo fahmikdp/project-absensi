@@ -12,7 +12,7 @@ const SaveButton = styled(Button)({
   textTransform: "none",
   fontSize: 15,
   letterSpacing: "1px",
-  width: "90%",
+  width: "95%",
   padding: "8px 70px",
   lineHeight: 1.5,
   backgroundColor: "#249EA0",

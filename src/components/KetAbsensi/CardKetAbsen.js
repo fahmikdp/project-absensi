@@ -72,6 +72,7 @@ const Data = () => {
                 variant="outlined"
                 aria-label="outlined button group"
                 color="inherit"
+                sx={{ width: 200 }}
               >
                 <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
                   <Typography sx={{ fontSize: 10 }}>Tidak Hadir</Typography>

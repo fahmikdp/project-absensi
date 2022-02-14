@@ -1,6 +1,6 @@
 import React from "react";
 import { AppBar, IconButton, Typography, Box } from "@mui/material";
-import { ChevronLeft } from "@mui/icons-material";
+import { ArrowBackTwoTone } from "@mui/icons-material";
 
 export default function Navbar(props) {
   return (
@@ -11,7 +11,7 @@ export default function Navbar(props) {
     >
       <Box>
         <IconButton sx={{ color: "#fff" }}>
-          <ChevronLeft />
+          <ArrowBackTwoTone />
           <Typography sx={{ fontFamily: "Roboto", fontWeight: 700 }}>
             {props.children}
           </Typography>

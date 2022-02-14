@@ -1,0 +1,7 @@
+#root .App .button {
+  /* position: absolute; */
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  grid-template-columns: repeat(6, 1fr);
+}
