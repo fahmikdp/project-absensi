@@ -8,20 +8,29 @@ import {
   Grid,
   Container,
   Skeleton,
+  Checkbox,
 } from "@mui/material";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PropTypes from "prop-types";
-import Checkbox from "./Checkbox";
-import Btn from "./Buttonfloating";
-import lotsOfData from "../DataAnggota/DataAnggota";
-import Navbar from "../Navbar";
+// import Checkbox from "../components/FormAbsensi/Checkbox";
+import Btn from "../components/FormAbsensi/Buttonfloating";
+import lotsOfData from "../components/DataAnggota/DataAnggota";
+import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
 export default function Media(props) {
   // const { loading = false } = props;
 
+  // Checkbox
+  const [checked, setChecked] = React.useState(false);
+
+  // const handleChanges = (event) => {
+  //   setChecked(event.target.checked);
+  // };
+
+  // Search Filter
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(lotsOfData);
 
@@ -47,18 +56,6 @@ export default function Media(props) {
       return o.length;
     });
     setData(dataset);
-    // const lowerCaseValue = value.toLowerCase().trim();
-    // if (!lowerCaseValue) {
-    //   setData(lotsOfData);
-    // } else {
-    //   const filteredData = lotsOfData.filter((item) => {
-    // return Object.keys(item).some((key) => {
-    //   return item[key].toString().toLowerCase().includes(lowerCaseValue);
-    // });
-    //     return item.nama == lowerCaseValue
-    //   });
-    //   setData(filteredData);
-    // }
   };
 
   return (
@@ -191,7 +188,12 @@ export default function Media(props) {
                   {/* Checkbox */}
                   <Grid item xs={2} md={2} lg={1}>
                     {/* {data ? ( */}
-                    <Checkbox />
+                    <Checkbox
+                      // checked={checked}
+                      // onChange={handleChanges}
+                      // inputProps={{ "aria-label": "controlled" }}
+                      sx={{ mt: 1 }}
+                    />
                     {/* ) : (
                       <Skeleton
                         animation="wave"

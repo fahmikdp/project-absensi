@@ -1,6 +1,6 @@
 import React from "react";
-import FormAbsensi from "./components/FormAbsensi/FormAbsensi";
-import Absensi from "./components/KetAbsensi/Absensi";
+import FormAbsensi from "./pages/FormAbsensi";
+import Absensi from "./pages/KetAbsensi";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {

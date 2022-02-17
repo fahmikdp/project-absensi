@@ -17,10 +17,91 @@ import {
 } from "@mui/material";
 import lotsOfData from "../DataAnggota/DataAnggota";
 import _ from "lodash";
+import "./Button.css";
 
-export default function SearchButtonCard() {
+// Data dan Style ButtonFilter
+const DataButton = [
+  "All",
+  "Putih",
+  "Kuning",
+  "Hijau",
+  "Biru",
+  "Coklat",
+  "Hitam",
+];
+
+const styleBtn = {
+  transition: " 1ms smooth",
+  marginTop: 1,
+  marginBottom: 1.5,
+  marginRight: 1,
+  width: "100%",
+  boxShadow: "none",
+  textTransform: "none",
+  fontSize: 11,
+  padding: "5px 22px",
+  border: "1px solid",
+  borderRadius: "20px",
+  lineHeight: 1.2,
+  backgroundColor: "#fff",
+  color: "#25B8BB",
+  borderColor: "#25B8BB",
+  // fontFamily: "Roboto",
+  "&:hover": {
+    color: "#fff",
+    boxShadow: "none",
+    backgroundColor: "#25B8BB",
+  },
+  "&:active": {
+    color: "#fff",
+    backgroundColor: "#25B8BB",
+  },
+  "&:focus": {
+    color: "#fff",
+    backgroundColor: "#25B8BB",
+  },
+};
+
+export default function Karateka() {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(lotsOfData);
+
+  // FilterButton
+  const handleBtns = (e) => {
+    let word = e.target.value;
+
+    if (word === "All") {
+      setData(lotsOfData);
+    } else if (word === "Putih") {
+      const filtered = lotsOfData.filter(
+        (item) => item.sabuk === "Sabuk Putih"
+      );
+      setData(filtered);
+    } else if (word === "Kuning") {
+      const filtered = lotsOfData.filter(
+        (item) => item.sabuk === "Sabuk Kuning"
+      );
+      setData(filtered);
+    } else if (word === "Hijau") {
+      const filtered = lotsOfData.filter(
+        (item) => item.sabuk === "Sabuk Hijau"
+      );
+      setData(filtered);
+    } else if (word === "Biru") {
+      const filtered = lotsOfData.filter((item) => item.sabuk === "Sabuk Biru");
+      setData(filtered);
+    } else if (word === "Coklat") {
+      const filtered = lotsOfData.filter(
+        (item) => item.sabuk === "Sabuk Coklat"
+      );
+      setData(filtered);
+    } else if (word === "Hitam") {
+      const filtered = lotsOfData.filter(
+        (item) => item.sabuk === "Sabuk Hitam"
+      );
+      setData(filtered);
+    }
+  };
 
   // handle change event of search input
   const handleChange = (value) => {
@@ -95,11 +176,21 @@ export default function SearchButtonCard() {
             },
         }}
       />
+
       {/* Component Button */}
-      <Buttons />
-      {/* <br />
-      <br />
-      <br /> */}
+      <Box className="box">
+        {DataButton.map((sabuk) => (
+          <Button
+            value={sabuk}
+            onClick={handleBtns}
+            sx={styleBtn}
+            variant="contained"
+          >
+            {sabuk}
+          </Button>
+        ))}
+      </Box>
+
       {/* Component Card */}
       {data.map((data, index) => (
         <Box key={index}>
@@ -114,22 +205,22 @@ export default function SearchButtonCard() {
             }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={1.5}>
+              <Grid item xs={1.4}>
                 <Avatar
                   sx={{
                     bgcolor: "#F78104",
                     ml: 1,
                     mt: 1,
-                    width: 30,
-                    height: 30,
-                    fontSize: 12,
+                    width: 37,
+                    height: 37,
+                    fontSize: 17,
                   }}
                   src={data.img}
                 >
                   {data.ava}
                 </Avatar>
               </Grid>
-              <Grid item xs={8.5}>
+              <Grid item xs={8.6}>
                 <CardContent>
                   <Typography
                     variant="h6"
@@ -154,6 +245,7 @@ export default function SearchButtonCard() {
                 </CardContent>
               </Grid>
             </Grid>
+
             {/* Keterangan Absensi */}
             <Box
               sx={{

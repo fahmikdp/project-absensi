@@ -5,9 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 // Component Search, Button, Card
-import Karateka from "./Search";
+import Karateka from "../components/KetAbsensi/Karateka";
 // import Navbar
-import Navbar from "../Navbar";
+import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 
 function TabPanel(props) {

@@ -1,7 +1,40 @@
-#root .App .button {
-  /* position: absolute; */
+#root .App .box {
   display: flex;
   overflow-x: auto;
   width: 100%;
   grid-template-columns: repeat(6, 1fr);
+}
+
+#root .app .buttons {
+  transition: 1ms smooth;
+  margin-top: 10;
+  margin-bottom: 10;
+  margin-right: 5;
+  width: 90%;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 11;
+  padding: 5px 22px;
+  border: 1px solid;
+  border-radius: 20px;
+  line-height: 1.2;
+  background-color: #fff;
+  color: #25b8bb;
+  border-color: #25b8bb;
+  font-family: "Roboto", sans-serif;
+}
+
+#root .App .buttons:hover {
+  color: #fff;
+  background-color: #25b8bb;
+}
+
+#root .App .buttons:active {
+  color: #fff;
+  background-color: #25b8bb;
+}
+
+#root .App .buttons:focus {
+  color: #fff;
+  background-color: #25b8bb;
 }
