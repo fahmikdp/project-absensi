@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 // Import Icon
 import SearchIcon from "@mui/icons-material/Search";
-import Buttons from "./ButtonFilter";
 // import Card
 import {
   Box,

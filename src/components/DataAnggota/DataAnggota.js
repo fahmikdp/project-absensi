@@ -6,6 +6,7 @@ import Nayya from "../../img/nayya.png";
 
 const lotsOfData = [
   {
+    id: 1,
     ava: "A",
     img: Adele,
     nama: "Adel",
@@ -16,6 +17,7 @@ const lotsOfData = [
     present: "75%",
   },
   {
+    id: 2,
     ava: "A",
     nama: "Aldi",
     sabuk: "Sabuk Kuning",
@@ -25,6 +27,7 @@ const lotsOfData = [
     present: "88%",
   },
   {
+    id: 3,
     ava: "A",
     img: Keanu,
     nama: "Angga",
@@ -35,6 +38,7 @@ const lotsOfData = [
     present: "92%",
   },
   {
+    id: 4,
     ava: "C",
     img: Hitomi,
     nama: "Chika",
@@ -45,6 +49,7 @@ const lotsOfData = [
     present: "95%",
   },
   {
+    id: 5,
     ava: "F",
     nama: "Fito",
     sabuk: "Sabuk Hijau",
@@ -54,6 +59,7 @@ const lotsOfData = [
     present: "70%",
   },
   {
+    id: 6,
     ava: "G",
     img: Tanjiro,
     nama: "Gilang",
@@ -64,6 +70,7 @@ const lotsOfData = [
     present: "80%",
   },
   {
+    id: 7,
     ava: "N",
     img: Nayya,
     nama: "Nayya",
@@ -74,6 +81,7 @@ const lotsOfData = [
     present: "78%",
   },
   {
+    id: 8,
     ava: "P",
     nama: "Putri",
     sabuk: "Sabuk Coklat",
@@ -83,6 +91,7 @@ const lotsOfData = [
     present: "90%",
   },
   {
+    id: 9,
     ava: "S",
     nama: "Sahrul",
     sabuk: "Sabuk Putih",
@@ -92,6 +101,7 @@ const lotsOfData = [
     present: "50%",
   },
   {
+    id: 10,
     ava: "S",
     nama: "Salwa",
     sabuk: "Sabuk Hitam",

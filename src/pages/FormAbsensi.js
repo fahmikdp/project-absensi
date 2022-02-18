@@ -24,11 +24,17 @@ export default function Media(props) {
   // const { loading = false } = props;
 
   // Checkbox
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+  const [checkdata, setCheckdata] = useState([]);
 
-  // const handleChanges = (event) => {
-  //   setChecked(event.target.checked);
-  // };
+  const handleChangeChecked = (event, c) => {
+    let dataCurrent = checkdata.filter((value) => value.id !== c.id);
+    let dataChange = data.filter((value) => value.id === c.id);
+    const dataChecked = [...dataCurrent, ...dataChange[0]];
+    // let sortData = dataChecked.sort((a, b) => a.id - b.id);
+    console.log(dataChecked);
+    // setData(sortData);
+  };
 
   // Search Filter
   const [searchText, setSearchText] = useState("");
@@ -108,7 +114,7 @@ export default function Media(props) {
           <br />
           <br />
           {/* Component Card */}
-          {data.map((data, index) => (
+          {data.map((value, index) => (
             <Box key={index}>
               <Card
                 sx={{
@@ -127,9 +133,9 @@ export default function Media(props) {
                     {/* {data ? ( */}
                     <Avatar
                       sx={{ bgcolor: "#F78104", ml: 1, mt: 1 }}
-                      src={data.img}
+                      src={value.img}
                     >
-                      {data.ava}
+                      {value.ava}
                     </Avatar>
                     {/* ) : (
                       <Skeleton
@@ -156,7 +162,7 @@ export default function Media(props) {
                           mt: -1,
                         }}
                       >
-                        {data.nama}
+                        {value.nama}
                       </Typography>
                       {/* ) : (
                         <Skeleton
@@ -167,13 +173,13 @@ export default function Media(props) {
                         />
                       )} */}
                       {/* Jenis Sabuk */}
-                      {/* {data ? ( */}
+                      {/* {value ? ( */}
                       <Typography
                         variant="body2"
                         color="text.secondary"
                         sx={{ fontSize: 12, fontFamily: "Roboto" }}
                       >
-                        {data.sabuk}
+                        {value.sabuk}
                       </Typography>
                       {/* ) : (
                         <Skeleton
@@ -187,11 +193,16 @@ export default function Media(props) {
                   </Grid>
                   {/* Checkbox */}
                   <Grid item xs={2} md={2} lg={1}>
-                    {/* {data ? ( */}
+                    {/* {value ? ( */}
                     <Checkbox
-                      // checked={checked}
-                      // onChange={handleChanges}
-                      // inputProps={{ "aria-label": "controlled" }}
+                      checked={
+                        data.filter((item) => item.id == value.id).length > 0
+                          ? true
+                          : false
+                      }
+                      value={data.filter((item) => item.id == value.id)}
+                      onChange={(event) => handleChangeChecked(event, value)}
+                      inputProps={{ "aria-label": "controlled" }}
                       sx={{ mt: 1 }}
                     />
                     {/* ) : (
