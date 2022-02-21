@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // Import Component MUI
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 // Import Icon
@@ -13,6 +13,7 @@ import {
   Grid,
   Button,
   ButtonGroup,
+  Skeleton,
 } from "@mui/material";
 import lotsOfData from "../DataAnggota/DataAnggota";
 import _ from "lodash";
@@ -62,6 +63,17 @@ const styleBtn = {
 };
 
 export default function Karateka() {
+  // Skeleton State
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Search and FilterButton State
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(lotsOfData);
 
@@ -179,14 +191,25 @@ export default function Karateka() {
       {/* Component Button */}
       <Box className="box">
         {DataButton.map((sabuk) => (
-          <Button
-            value={sabuk}
-            onClick={handleBtns}
-            sx={styleBtn}
-            variant="contained"
-          >
-            {sabuk}
-          </Button>
+          <>
+            {loading ? (
+              <Button
+                value={sabuk}
+                onClick={handleBtns}
+                sx={styleBtn}
+                variant="contained"
+              >
+                {sabuk}
+              </Button>
+            ) : (
+              <Skeleton
+                animation="wave"
+                width={207}
+                height={30}
+                sx={{ mr: 1, mt: 1, mb: 1, borderRadius: 10 }}
+              />
+            )}
+          </>
         ))}
       </Box>
 
@@ -205,42 +228,71 @@ export default function Karateka() {
           >
             <Grid container spacing={2}>
               <Grid item xs={1.4}>
-                <Avatar
-                  sx={{
-                    bgcolor: "#F78104",
-                    ml: 1,
-                    mt: 1,
-                    width: 37,
-                    height: 37,
-                    fontSize: 17,
-                  }}
-                  src={data.img}
-                >
-                  {data.ava}
-                </Avatar>
+                {loading ? (
+                  <Avatar
+                    sx={{
+                      bgcolor: "#F78104",
+                      ml: 1,
+                      mt: 1,
+                      width: 37,
+                      height: 37,
+                      fontSize: 17,
+                    }}
+                    src={data.img}
+                  >
+                    {data.ava}
+                  </Avatar>
+                ) : (
+                  <Skeleton
+                    animation="wave"
+                    variant="circular"
+                    width={37}
+                    height={37}
+                    sx={{ ml: 1, mt: 1 }}
+                  />
+                )}
               </Grid>
               <Grid item xs={8.6}>
                 <CardContent>
-                  <Typography
-                    variant="h6"
-                    component="div"
-                    sx={{
-                      fontSize: 13,
-                      fontFamily: "Roboto",
-                      fontWeight: "bold",
-                      ml: 0,
-                      mt: -1,
-                    }}
-                  >
-                    {data.nama}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ fontSize: 9, fontFamily: "Roboto" }}
-                  >
-                    {data.sabuk}
-                  </Typography>
+                  {loading ? (
+                    <Typography
+                      variant="h6"
+                      component="div"
+                      sx={{
+                        fontSize: 13,
+                        fontFamily: "Roboto",
+                        fontWeight: "bold",
+                        ml: 0,
+                        mt: -1,
+                      }}
+                    >
+                      {data.nama}
+                    </Typography>
+                  ) : (
+                    <Skeleton
+                      animation="wave"
+                      height={12}
+                      width="80%"
+                      style={{ marginBottom: 3, marginTop: -4 }}
+                    />
+                  )}
+                  {/* Jenis Sabuk */}
+                  {loading ? (
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ fontSize: 9, fontFamily: "Roboto" }}
+                    >
+                      {data.sabuk}
+                    </Typography>
+                  ) : (
+                    <Skeleton
+                      animation="wave"
+                      height={9}
+                      width="40%"
+                      style={{ marginBottom: 6 }}
+                    />
+                  )}
                 </CardContent>
               </Grid>
             </Grid>
@@ -254,49 +306,60 @@ export default function Karateka() {
                 alignItems: "center",
               }}
             >
-              <ButtonGroup
-                variant="text"
-                aria-label="outlined button group"
-                color="inherit"
-              >
-                <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
-                  <Typography sx={{ fontSize: 8 }}>Tidak Hadir</Typography>
-                  <Typography sx={{ fontSize: 14 }}>{data.alpa}</Typography>
-                </Button>
-                <Button
-                  sx={{
-                    display: "block",
-                    borderColor: "#a1a1a1",
-                    ml: 1,
-                    pr: 2,
-                  }}
+              {loading ? (
+                <ButtonGroup
+                  variant="text"
+                  aria-label="outlined button group"
+                  color="inherit"
                 >
-                  <Typography sx={{ fontSize: 8 }}>Sakit</Typography>
-                  <Typography sx={{ fontSize: 14 }}>{data.sakit}</Typography>
-                </Button>
-                <Button
-                  sx={{
-                    display: "block",
-                    borderColor: "#a1a1a1",
-                    ml: 1,
-                    pr: 2,
-                  }}
-                >
-                  <Typography sx={{ fontSize: 8 }}>Izin</Typography>
-                  <Typography sx={{ fontSize: 14 }}>{data.izin}</Typography>
-                </Button>
-                <Button
-                  sx={{
-                    display: "block",
-                    borderColor: "#a1a1a1",
-                    ml: 1,
-                    pr: 2,
-                  }}
-                >
-                  <Typography sx={{ fontSize: 8 }}>Presentase</Typography>
-                  <Typography sx={{ fontSize: 14 }}>{data.present}</Typography>
-                </Button>
-              </ButtonGroup>
+                  <Button sx={{ display: "block", borderColor: "#a1a1a1" }}>
+                    <Typography sx={{ fontSize: 8 }}>Tidak Hadir</Typography>
+                    <Typography sx={{ fontSize: 14 }}>{data.alpa}</Typography>
+                  </Button>
+                  <Button
+                    sx={{
+                      display: "block",
+                      borderColor: "#a1a1a1",
+                      ml: 1,
+                      pr: 2,
+                    }}
+                  >
+                    <Typography sx={{ fontSize: 8 }}>Sakit</Typography>
+                    <Typography sx={{ fontSize: 14 }}>{data.sakit}</Typography>
+                  </Button>
+                  <Button
+                    sx={{
+                      display: "block",
+                      borderColor: "#a1a1a1",
+                      ml: 1,
+                      pr: 2,
+                    }}
+                  >
+                    <Typography sx={{ fontSize: 8 }}>Izin</Typography>
+                    <Typography sx={{ fontSize: 14 }}>{data.izin}</Typography>
+                  </Button>
+                  <Button
+                    sx={{
+                      display: "block",
+                      borderColor: "#a1a1a1",
+                      ml: 1,
+                      pr: 2,
+                    }}
+                  >
+                    <Typography sx={{ fontSize: 8 }}>Presentase</Typography>
+                    <Typography sx={{ fontSize: 14 }}>
+                      {data.present}
+                    </Typography>
+                  </Button>
+                </ButtonGroup>
+              ) : (
+                <Skeleton
+                  animation="wave"
+                  height={65}
+                  width="70%"
+                  style={{ marginTop: -10 }}
+                />
+              )}
             </Box>
           </Card>
         </Box>

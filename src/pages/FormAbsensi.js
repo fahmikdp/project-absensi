@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import PropTypes from "prop-types";
 // import Checkbox from "../components/FormAbsensi/Checkbox";
 import Btn from "../components/FormAbsensi/Buttonfloating";
 import lotsOfData from "../components/DataAnggota/DataAnggota";
@@ -20,23 +19,41 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
-export default function Media(props) {
-  // const { loading = false } = props;
+export default function Media() {
+  // Skeleton state
+  const [loading, setLoading] = useState(false);
 
-  // Checkbox
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Checkbox state
   const [checked, setChecked] = useState(false);
   const [checkdata, setCheckdata] = useState([]);
 
-  const handleChangeChecked = (event, c) => {
-    let dataCurrent = checkdata.filter((value) => value.id !== c.id);
-    let dataChange = data.filter((value) => value.id === c.id);
-    const dataChecked = [...dataCurrent, ...dataChange[0]];
-    // let sortData = dataChecked.sort((a, b) => a.id - b.id);
-    console.log(dataChecked);
-    // setData(sortData);
+  const handleChangeChecked = (c) => {
+    // let dataCurrent = checkdata.filter((value) => value.id !== c.id);
+    // let dataChange = data.filter((value) => value.id === c.id);
+    // const dataChecked = [...dataCurrent, ...dataChange[0]];
+    // // let sortData = dataChecked.sort((a, b) => a.id - b.id);
+    // console.log(dataChecked);
+    // // setData(sortData);
+    let fselected = [...checkdata];
+    let selectedtrue = checkdata.filter((value) => value.id !== c.id);
+
+    if (selectedtrue) {
+      let withoutdouble = fselected.filter((x) => x.id !== c.id);
+      setCheckdata(withoutdouble);
+    } else {
+      fselected.push(c);
+      setCheckdata(fselected);
+    }
   };
 
-  // Search Filter
+  // SEARCH FILTER STATE
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(lotsOfData);
 
@@ -130,14 +147,14 @@ export default function Media(props) {
                 <Grid container spacing={2}>
                   {/* Avatar */}
                   <Grid item xs={1.5} md={1} lg={0.5}>
-                    {/* {data ? ( */}
-                    <Avatar
-                      sx={{ bgcolor: "#F78104", ml: 1, mt: 1 }}
-                      src={value.img}
-                    >
-                      {value.ava}
-                    </Avatar>
-                    {/* ) : (
+                    {loading ? (
+                      <Avatar
+                        sx={{ bgcolor: "#F78104", ml: 1, mt: 1 }}
+                        src={value.img}
+                      >
+                        {value.ava}
+                      </Avatar>
+                    ) : (
                       <Skeleton
                         animation="wave"
                         variant="circular"
@@ -145,74 +162,75 @@ export default function Media(props) {
                         height={40}
                         sx={{ ml: 1, mt: 1 }}
                       />
-                    )} */}
+                    )}
                   </Grid>
                   <Grid item xs={8.5} md={9} lg={10}>
                     <CardContent>
                       {/* Nama Peserta */}
-                      {/* {data ? ( */}
-                      <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{
-                          fontSize: 16,
-                          fontFamily: "Roboto",
-                          fontWeight: "bold",
-                          ml: 0,
-                          mt: -1,
-                        }}
-                      >
-                        {value.nama}
-                      </Typography>
-                      {/* ) : (
+                      {loading ? (
+                        <Typography
+                          variant="h6"
+                          component="div"
+                          sx={{
+                            fontSize: 16,
+                            fontFamily: "Roboto",
+                            fontWeight: "bold",
+                            ml: 0,
+                            mt: -1,
+                          }}
+                        >
+                          {value.nama}
+                        </Typography>
+                      ) : (
                         <Skeleton
                           animation="wave"
                           height={15}
                           width="80%"
                           style={{ marginBottom: 5, marginTop: -3 }}
                         />
-                      )} */}
+                      )}
                       {/* Jenis Sabuk */}
-                      {/* {value ? ( */}
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ fontSize: 12, fontFamily: "Roboto" }}
-                      >
-                        {value.sabuk}
-                      </Typography>
-                      {/* ) : (
+                      {loading ? (
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ fontSize: 12, fontFamily: "Roboto" }}
+                        >
+                          {value.sabuk}
+                        </Typography>
+                      ) : (
                         <Skeleton
                           animation="wave"
                           height={10}
                           width="40%"
                           style={{ marginBottom: 6 }}
                         />
-                      )} */}
+                      )}
                     </CardContent>
                   </Grid>
                   {/* Checkbox */}
                   <Grid item xs={2} md={2} lg={1}>
-                    {/* {value ? ( */}
-                    <Checkbox
-                      checked={
-                        data.filter((item) => item.id == value.id).length > 0
-                          ? true
-                          : false
-                      }
-                      value={data.filter((item) => item.id == value.id)}
-                      onChange={(event) => handleChangeChecked(event, value)}
-                      inputProps={{ "aria-label": "controlled" }}
-                      sx={{ mt: 1 }}
-                    />
-                    {/* ) : (
+                    {loading ? (
+                      <Checkbox
+                        checked={
+                          checkdata.filter((item) => item.id == value.id)
+                            .length > 0
+                            ? true
+                            : false
+                        }
+                        // value={data.filter((item) => item.id == value.id)}
+                        onChange={() => handleChangeChecked(value)}
+                        inputProps={{ "aria-label": "controlled" }}
+                        sx={{ mt: 1 }}
+                      />
+                    ) : (
                       <Skeleton
                         animation="wave"
                         height={40}
                         width="50%"
                         style={{ marginTop: 10, marginLeft: 10 }}
                       />
-                    )} */}
+                    )}
                   </Grid>
                 </Grid>
               </Card>
