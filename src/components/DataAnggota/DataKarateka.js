@@ -111,5 +111,6 @@ const lotsOfData = [
     present: "85%",
   },
 ];
-
 export default lotsOfData;
+// export const totalKarateka = [2.192];
+// export const ketKarateka = [{ sakit: 12 }, { izin: 2 }, { alpa: 3 }];

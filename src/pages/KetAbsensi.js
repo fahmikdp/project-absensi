@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 // Component Search, Button, Card
 import Karateka from "../components/KetAbsensi/Karateka";
+import Pelatih from "../components/KetAbsensi/Pelatih";
 // import Navbar
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -52,7 +53,7 @@ export default function BasicTabs() {
 
   return (
     <>
-      <Link to="/">
+      <Link to="/formabsensi">
         <Navbar>&nbsp;Absensi</Navbar>
       </Link>
       <Box sx={{ width: "100%", mt: 6 }}>
@@ -75,7 +76,7 @@ export default function BasicTabs() {
         </TabPanel>
         {/* Tab Pelatih */}
         <TabPanel value={value} index={1}>
-          Belum ada
+          <Pelatih />
         </TabPanel>
       </Box>
     </>

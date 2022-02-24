@@ -14,7 +14,7 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 // import Checkbox from "../components/FormAbsensi/Checkbox";
 import Btn from "../components/FormAbsensi/Buttonfloating";
-import lotsOfData from "../components/DataAnggota/DataAnggota";
+import lotsOfData from "../components/DataAnggota/DataKarateka";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import _ from "lodash";
@@ -84,7 +84,9 @@ export default function Media() {
   return (
     <>
       {/* Navbar */}
-      <Navbar>&nbsp;Form Absensi</Navbar>
+      <Link to="/">
+        <Navbar>&nbsp;Form Absensi</Navbar>
+      </Link>
       {/* Search */}
       <Container>
         <Box sx={{ flexGrow: 1, mt: 8 }}>

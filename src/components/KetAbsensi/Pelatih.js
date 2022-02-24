@@ -15,20 +15,12 @@ import {
   ButtonGroup,
   Skeleton,
 } from "@mui/material";
-import lotsOfData from "../DataAnggota/DataKarateka";
+import dataPelatih from "../DataAnggota/DataPelatih";
 import _ from "lodash";
 import "./Button.css";
 
 // Data dan Style ButtonFilter
-const DataButton = [
-  "All",
-  "Putih",
-  "Kuning",
-  "Hijau",
-  "Biru",
-  "Coklat",
-  "Hitam",
-];
+const DataButton = ["All", "DAN I", "DAN II", "DAN III", "DAN IV", "DAN V"];
 
 const styleBtn = {
   transition: " 1ms smooth",
@@ -38,8 +30,8 @@ const styleBtn = {
   width: "100%",
   boxShadow: "none",
   textTransform: "none",
-  fontSize: 11,
-  padding: "5px 32px",
+  fontSize: 10,
+  padding: "1px 40px",
   border: "1px solid",
   borderRadius: "20px",
   lineHeight: 1.2,
@@ -75,41 +67,28 @@ export default function Karateka() {
 
   // Search and FilterButton State
   const [searchText, setSearchText] = useState("");
-  const [data, setData] = useState(lotsOfData);
+  const [data, setData] = useState(dataPelatih);
 
   // FilterButton
   const handleBtns = (e) => {
     let word = e.target.value;
 
     if (word === "All") {
-      setData(lotsOfData);
-    } else if (word === "Putih") {
-      const filtered = lotsOfData.filter(
-        (item) => item.sabuk === "Sabuk Putih"
-      );
+      setData(dataPelatih);
+    } else if (word === "DAN I") {
+      const filtered = dataPelatih.filter((item) => item.dan === "I");
       setData(filtered);
-    } else if (word === "Kuning") {
-      const filtered = lotsOfData.filter(
-        (item) => item.sabuk === "Sabuk Kuning"
-      );
+    } else if (word === "DAN II") {
+      const filtered = dataPelatih.filter((item) => item.dan === "II");
       setData(filtered);
-    } else if (word === "Hijau") {
-      const filtered = lotsOfData.filter(
-        (item) => item.sabuk === "Sabuk Hijau"
-      );
+    } else if (word === "DAN III") {
+      const filtered = dataPelatih.filter((item) => item.dan === "III");
       setData(filtered);
-    } else if (word === "Biru") {
-      const filtered = lotsOfData.filter((item) => item.sabuk === "Sabuk Biru");
+    } else if (word === "DAN IV") {
+      const filtered = dataPelatih.filter((item) => item.dan === "IV");
       setData(filtered);
-    } else if (word === "Coklat") {
-      const filtered = lotsOfData.filter(
-        (item) => item.sabuk === "Sabuk Coklat"
-      );
-      setData(filtered);
-    } else if (word === "Hitam") {
-      const filtered = lotsOfData.filter(
-        (item) => item.sabuk === "Sabuk Hitam"
-      );
+    } else if (word === "DAN V") {
+      const filtered = dataPelatih.filter((item) => item.dan === "V");
       setData(filtered);
     }
   };
@@ -133,7 +112,7 @@ export default function Karateka() {
       "izin",
       "present",
     ].map((x, i) => {
-      return lotsOfData.filter((el) => {
+      return dataPelatih.filter((el) => {
         if (el[x]) {
           return el[x].toString().toLowerCase().indexOf(searchQuery) !== -1;
         }
@@ -190,16 +169,11 @@ export default function Karateka() {
 
       {/* Component Button */}
       <Box className="box">
-        {DataButton.map((sabuk) => (
+        {DataButton.map((dan) => (
           <>
             {loading ? (
-              <Button
-                value={sabuk}
-                onClick={handleBtns}
-                sx={styleBtn}
-                variant="contained"
-              >
-                {sabuk}
+              <Button value={dan} onClick={handleBtns} sx={styleBtn}>
+                {dan}
               </Button>
             ) : (
               <Skeleton
