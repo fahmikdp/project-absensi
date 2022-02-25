@@ -41,10 +41,26 @@ export default function Media() {
     // // let sortData = dataChecked.sort((a, b) => a.id - b.id);
     // console.log(dataChecked);
     // // setData(sortData);
-    let fselected = [...checkdata];
-    let selectedtrue = checkdata.filter((value) => value.id !== c.id);
 
-    if (selectedtrue) {
+    //   let fselected = [...checkdata];
+    //   let selectedtrue = checkdata.filter((value) => value.id !== c.id);
+
+    //   if (selectedtrue) {
+    //     let withoutdouble = fselected.filter((x) => x.id !== c.id);
+    //     setCheckdata(withoutdouble);
+    //   } else {
+    //     fselected.push(c);
+    //     setCheckdata(fselected);
+    //   }
+    // };
+
+    // setSelectedData(e);
+    // setBackground(background);
+    let fselected = [...checkdata];
+    let selectedtrue = checkdata.filter((x) => x.id === c.id);
+    console.log(fselected);
+
+    if (selectedtrue.length > 0) {
       let withoutdouble = fselected.filter((x) => x.id !== c.id);
       setCheckdata(withoutdouble);
     } else {
