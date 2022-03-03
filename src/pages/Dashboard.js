@@ -84,8 +84,10 @@ export default function Dashboard() {
           </Link>
         </Button>
         <Button variant="contained" sx={styleBtn}>
-          <GroupsIcon sx={{ color: "#f78104" }} />
-          <Typography sx={{ fontSize: 12 }}>Pelatih</Typography>
+          <Link to="/formizin" style={{ textDecoration: "none" }}>
+            <GroupsIcon sx={{ color: "#f78104" }} />
+            <Typography sx={{ fontSize: 12 }}>Pelatih</Typography>
+          </Link>
         </Button>
       </Box>
       {/* Akhir button */}

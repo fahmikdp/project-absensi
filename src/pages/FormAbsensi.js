@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
+  AppBar,
   Box,
   Card,
   CardContent,
@@ -9,11 +10,12 @@ import {
   Container,
   Skeleton,
   Checkbox,
+  Button,
 } from "@mui/material";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 // import Checkbox from "../components/FormAbsensi/Checkbox";
-import Btn from "../components/FormAbsensi/Buttonfloating";
+import { SaveButton } from "../components/FormAbsensi/Buttonfloating";
 import lotsOfData from "../components/DataAnggota/DataKarateka";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -31,31 +33,9 @@ export default function Media() {
   }, []);
 
   // Checkbox state
-  const [checked, setChecked] = useState(false);
   const [checkdata, setCheckdata] = useState([]);
 
   const handleChangeChecked = (c) => {
-    // let dataCurrent = checkdata.filter((value) => value.id !== c.id);
-    // let dataChange = data.filter((value) => value.id === c.id);
-    // const dataChecked = [...dataCurrent, ...dataChange[0]];
-    // // let sortData = dataChecked.sort((a, b) => a.id - b.id);
-    // console.log(dataChecked);
-    // // setData(sortData);
-
-    //   let fselected = [...checkdata];
-    //   let selectedtrue = checkdata.filter((value) => value.id !== c.id);
-
-    //   if (selectedtrue) {
-    //     let withoutdouble = fselected.filter((x) => x.id !== c.id);
-    //     setCheckdata(withoutdouble);
-    //   } else {
-    //     fselected.push(c);
-    //     setCheckdata(fselected);
-    //   }
-    // };
-
-    // setSelectedData(e);
-    // setBackground(background);
     let fselected = [...checkdata];
     let selectedtrue = checkdata.filter((x) => x.id === c.id);
     console.log(fselected);
@@ -236,7 +216,6 @@ export default function Media() {
                             ? true
                             : false
                         }
-                        // value={data.filter((item) => item.id == value.id)}
                         onChange={() => handleChangeChecked(value)}
                         inputProps={{ "aria-label": "controlled" }}
                         sx={{ mt: 1 }}
@@ -256,8 +235,32 @@ export default function Media() {
           ))}
           {/* Button Floating */}
           {data.length === 0 && <span>No records found to display!</span>}
+
+          {/* Button Floating */}
           <Link to="/absensi">
-            <Btn />
+            <Box sx={{ mt: 8 }}>
+              <AppBar
+                position="fixed"
+                sx={{
+                  top: "auto",
+                  bottom: 0,
+                  bgcolor: "transparent",
+                }}
+              >
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    margin: "auto",
+                    textAlign: "center",
+                    width: "95%",
+                  }}
+                >
+                  <Button variant="contained" disableRipple sx={SaveButton}>
+                    Simpan
+                  </Button>
+                </Box>
+              </AppBar>
+            </Box>
           </Link>
         </Box>
       </Container>

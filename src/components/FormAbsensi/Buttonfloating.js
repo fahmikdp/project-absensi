@@ -1,13 +1,7 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-
-const SaveButton = styled(Button)({
+export const SaveButton = {
   transition: " 1ms smooth",
   marginTop: 0,
-  marginBottom: 15,
+  marginBottom: 1.5,
   boxShadow: "none",
   textTransform: "none",
   fontSize: 15,
@@ -36,32 +30,4 @@ const SaveButton = styled(Button)({
   "&:focus": {
     boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
   },
-});
-
-export default function FloatingActionButtons() {
-  return (
-    <Box sx={{ mt: 8 }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          top: "auto",
-          bottom: 0,
-          bgcolor: "transparent",
-        }}
-      >
-        <Box
-          sx={{
-            flexGrow: 1,
-            margin: "auto",
-            textAlign: "center",
-            width: "95%",
-          }}
-        >
-          <SaveButton variant="contained" disableRipple>
-            Simpan
-          </SaveButton>
-        </Box>
-      </AppBar>
-    </Box>
-  );
-}
+};
