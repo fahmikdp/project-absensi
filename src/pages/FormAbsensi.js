@@ -49,6 +49,11 @@ export default function Media() {
     }
   };
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   alert(`The name you entered was: ${searchText}`);
+  // }
+
   // SEARCH FILTER STATE
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(lotsOfData);
@@ -132,6 +137,7 @@ export default function Media() {
           {data.map((value, index) => (
             <Box key={index}>
               <Card
+                onClick={() => handleChangeChecked(value)}
                 sx={{
                   maxWidth: 520,
                   xs: 12,
@@ -216,7 +222,7 @@ export default function Media() {
                             ? true
                             : false
                         }
-                        onChange={() => handleChangeChecked(value)}
+                        onClick={() => handleChangeChecked(value)}
                         inputProps={{ "aria-label": "controlled" }}
                         sx={{ mt: 1 }}
                       />
