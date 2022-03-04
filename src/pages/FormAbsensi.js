@@ -38,7 +38,7 @@ export default function Media() {
   const handleChangeChecked = (c) => {
     let fselected = [...checkdata];
     let selectedtrue = checkdata.filter((x) => x.id === c.id);
-    console.log(fselected);
+    // console.log(fselected);
 
     if (selectedtrue.length > 0) {
       let withoutdouble = fselected.filter((x) => x.id !== c.id);
@@ -49,10 +49,13 @@ export default function Media() {
     }
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   alert(`The name you entered was: ${searchText}`);
-  // }
+  //  Ngambil data plis bisa yok
+  const [ambildata, setAmbildata] = useState(false);
+
+  const handleSubmit = () => {
+    const ambildata = checkdata;
+    console.log(ambildata, "Telah di absen");
+  };
 
   // SEARCH FILTER STATE
   const [searchText, setSearchText] = useState("");
@@ -89,6 +92,7 @@ export default function Media() {
         <Navbar>&nbsp;Form Absensi</Navbar>
       </Link>
       {/* Search */}
+
       <Container>
         <Box sx={{ flexGrow: 1, mt: 8 }}>
           <TextField
@@ -223,6 +227,7 @@ export default function Media() {
                             : false
                         }
                         onClick={() => handleChangeChecked(value)}
+                        onchange={(e) => setAmbildata(e.target.checked)}
                         inputProps={{ "aria-label": "controlled" }}
                         sx={{ mt: 1 }}
                       />
@@ -243,31 +248,37 @@ export default function Media() {
           {data.length === 0 && <span>No records found to display!</span>}
 
           {/* Button Floating */}
-          <Link to="/absensi">
-            <Box sx={{ mt: 8 }}>
-              <AppBar
-                position="fixed"
+          {/* <Link to="/absensi"> */}
+          <Box sx={{ mt: 8 }}>
+            <AppBar
+              position="fixed"
+              sx={{
+                top: "auto",
+                bottom: 0,
+                bgcolor: "transparent",
+              }}
+            >
+              <Box
                 sx={{
-                  top: "auto",
-                  bottom: 0,
-                  bgcolor: "transparent",
+                  flexGrow: 1,
+                  margin: "auto",
+                  textAlign: "center",
+                  width: "95%",
                 }}
               >
-                <Box
-                  sx={{
-                    flexGrow: 1,
-                    margin: "auto",
-                    textAlign: "center",
-                    width: "95%",
-                  }}
+                <Button
+                  type="submit"
+                  onClick={handleSubmit}
+                  variant="contained"
+                  disableRipple
+                  sx={SaveButton}
                 >
-                  <Button variant="contained" disableRipple sx={SaveButton}>
-                    Simpan
-                  </Button>
-                </Box>
-              </AppBar>
-            </Box>
-          </Link>
+                  Simpan
+                </Button>
+              </Box>
+            </AppBar>
+          </Box>
+          {/* </Link> */}
         </Box>
       </Container>
     </>
