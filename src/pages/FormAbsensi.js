@@ -18,8 +18,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import { SaveButton } from "../components/FormAbsensi/Buttonfloating";
 import lotsOfData from "../components/DataAnggota/DataKarateka";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import _ from "lodash";
+import { ArrowBackTwoTone } from "@mui/icons-material";
 
 export default function Media() {
   // Skeleton state
@@ -49,11 +50,14 @@ export default function Media() {
     }
   };
 
-  //  Ngambil data plis bisa yok
+  //  Ambil data
   const [ambildata, setAmbildata] = useState(false);
+
+  const history = useHistory();
 
   const handleSubmit = () => {
     const ambildata = checkdata;
+    history.push("/absensi");
     console.log(ambildata, "Telah di absen");
   };
 
@@ -88,9 +92,22 @@ export default function Media() {
   return (
     <>
       {/* Navbar */}
-      <Link to="/">
-        <Navbar>&nbsp;Form Absensi</Navbar>
-      </Link>
+      <Navbar>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <IconButton sx={{ color: "#fff" }}>
+            <ArrowBackTwoTone />
+            <Typography
+              sx={{
+                fontFamily: "Roboto",
+                fontWeight: 500,
+                color: "#fff",
+              }}
+            >
+              &nbsp;Form Absensi
+            </Typography>
+          </IconButton>
+        </Link>
+      </Navbar>
       {/* Search */}
 
       <Container>
@@ -229,7 +246,7 @@ export default function Media() {
                         onClick={() => handleChangeChecked(value)}
                         onchange={(e) => setAmbildata(e.target.checked)}
                         inputProps={{ "aria-label": "controlled" }}
-                        sx={{ mt: 1 }}
+                        sx={{ mt: 1, color: "#249EA0" }}
                       />
                     ) : (
                       <Skeleton

@@ -9,7 +9,9 @@ import Karateka from "../components/KetAbsensi/Karateka";
 import Pelatih from "../components/KetAbsensi/Pelatih";
 // import Navbar
 import Navbar from "../components/Navbar";
+import { ArrowBackTwoTone } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { IconButton } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -53,9 +55,22 @@ export default function BasicTabs() {
 
   return (
     <>
-      <Link to="/formabsensi">
-        <Navbar>&nbsp;Absensi</Navbar>
-      </Link>
+      <Navbar>
+        <Link to="/formabsensi" style={{ textDecoration: "none" }}>
+          <IconButton sx={{ color: "#fff" }}>
+            <ArrowBackTwoTone />
+            <Typography
+              sx={{
+                fontFamily: "Roboto",
+                fontWeight: 500,
+                color: "#fff",
+              }}
+            >
+              &nbsp;Absensi
+            </Typography>
+          </IconButton>
+        </Link>
+      </Navbar>
       <Box sx={{ width: "100%", mt: 6 }}>
         <Box sx={{ color: "grey" }}>
           <Tabs
